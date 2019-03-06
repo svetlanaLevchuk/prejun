@@ -54,15 +54,15 @@ public class Company {
     public void addTransportPlane(TransportPlane plane) {
         transportPlanes.add(plane);
     }
-
+//попробуй переделать метод используя Stream api https://annimon.com/article/2778, https://baron.su/2017/java-summa-elementov-spiska-s-nulevymi-elementami.html
     public double countCarryingCapacity() {
-        double total = 0;
+        double total = 0;  
         for (TransportPlane plane : transportPlanes) {
             total += plane.getCarryingCapacity();
         }
         return total;
     }
-
+//Stream api
     public double countPeopleCapacity () {
         double total = 0;
         for (Airline plane : airlines) {
@@ -81,6 +81,7 @@ public class Company {
         }
 
         Collections.sort(listDistance);
+        //лучше использовать логирование вместо вывода в консоль - log4j - http://javastudy.ru/log4j/log4j-hello-world-example/
         System.out.println("Sorted by distance:\n");
         for (double distance : listDistance) {
             System.out.println("\n" + distance);
